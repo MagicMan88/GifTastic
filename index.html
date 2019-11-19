@@ -9,31 +9,38 @@
 </head>
 
 <body>
-
-    <!-- Div Holding Buttons -->
-    <div id="buttons">
-        <button data-person="Harry Potter">
-            Expecto Patronum
-        </button>
-        <button data-person="Gandalf">
-            You shall not pass
-        </button>
-        <button data-person="James Dean">
-            You're tearing me apart
-        </button>
-        <button data-person="Humphrey Bogart">
-            The stuff that dreams are made of
-        </button>
-        <button data-person="Chicken Little">
-            The sky is falling
-        </button>
+    <!-- Container wrapping whole document -->
+    <div class="container">
+        <!-- Div Holding Buttons -->
+        <div id="buttons">
+            <button data-person="Harry Potter">
+                Harry Potter
+            </button>
+            <button data-person="Lord of the Rings">
+                Lord of The Rings
+            </button>
+            <button data-person="Casino Royale">
+                Casino Royale
+            </button>
+            <button data-person="Sirius Black">
+                Sirius Black
+            </button>
+            <button data-person="Chicken Little">
+                Chicken Little
+            </button>
+        </div>
+        <!-- Gif's go here -->
+        <div id="gifs-go-here"></div>
     </div>
-
-    <!-- Gif's go here -->
-    <div id="gifs-go-here">
-
+    <!-- Form to add a new movie -->
+    <div class="addMovie">
+        <form id="form">
+            <label for="character-input">Add your favorite movie</label><br>
+            <input type="text" id="movie-input"><br>
+            <input id="add-character" type="submit" value="Submit">
+        </form>
     </div>
-
+    <!-- Script tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/app.js"></script>
