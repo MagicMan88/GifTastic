@@ -62,7 +62,7 @@ $('button').on('click', function () {
                     $('#gifs-go-here').prepend(gifDiv);
 
                     // Function to animate gifs
-                    $("gifDiv").on("click", ".gif", function (event) {
+                    $(".gif").on("click", function (event) {
                         event.preventDefault();
 
                         // gets the current state of the clicked gif 
