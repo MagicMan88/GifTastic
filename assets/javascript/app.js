@@ -2,20 +2,6 @@
 var topics = ["Harry Potter", "Gandalf", "James Bond", "Sirius Black", "Chicken Little"];
 var newButton;
 
-// // Function to create new buttons from the topics array
-var buttonGenerator = function () {
-    // Empty the previous div elements
-    // $('#buttons').empty();
-    // loops through the array and creates buttons
-    for (i = 0; i < topics.length; i++) {
-        var newButton = $('<button>');
-        newButton.addClass('topics')
-        newButton.attr('data', topics[i]);
-        $('#buttons').append(newButton);
-    };
-}
-buttonGenerator();
-
 // Event listener for all button elements
 $('button').on('click', function () {
     var topics = $(this).attr('data-person');
