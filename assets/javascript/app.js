@@ -1,17 +1,20 @@
 // Topics and buttons variables
 var topics = ["Harry Potter", "Gandalf", "James Bond", "Sirius Black", "Chicken Little"];
-var newTopic = "";
+var newButton;
 
-// function to create new buttons from the topics array
-var buttonGenerator = function (){
-	// Empty the previous div elements
-	 $("#buttons").empty();
-	// loops through the array and creates buttons
-	for(i = 0; i < topics.length; i++) {
-		button = $("<button type=" + "button" + ">" + topics[i] + "</button>").addClass("btn btn-warning").attr("data",topics[i]);
-		$("#buttons").append(button);
-	};
+// // Function to create new buttons from the topics array
+var buttonGenerator = function () {
+    // Empty the previous div elements
+    // $('#buttons').empty();
+    // loops through the array and creates buttons
+    for (i = 0; i < topics.length; i++) {
+        var newButton = $('<button>');
+        newButton.addClass('topics')
+        newButton.attr('data', topics[i]);
+        $('#buttons').append(newButton);
+    };
 }
+buttonGenerator();
 
 // Event listener for all button elements
 $('button').on('click', function () {
@@ -47,7 +50,7 @@ $('button').on('click', function () {
                     // Create an image tag
                     var topicsImg = $('<img>');
 
-                    // Make sure to grab the still images so you can pause on click
+                    // Make sure to grab the still images so you can unpause on click
                     topicsImg.attr("src", results[i].images.fixed_height_still.url);
                     topicsImg.attr("data-still", results[i].images.fixed_height_still.url);
                     topicsImg.attr("data-animate", results[i].images.fixed_height.url)
@@ -79,17 +82,14 @@ $('button').on('click', function () {
 
                     })
 
-                    $(".submit").on("click", function (event) {
+                    $('#add-topic').on('click', function (event) {
                         event.preventDefault();
-
-                        console.log("submit");
+                        console.log('submit');
                         // sets inputted value to newTopic 
-                        newTopic = $("#topic-input").val();
+                        newTopic = $('#topic-input').val().trim();
                         // new topic is added to the topics array 
                         topics.push(newTopic);
                         console.log(topics);
-                        // call the function that creates the new button
-                        buttonGenerator();
                     });
 
                 };

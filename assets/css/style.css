@@ -1,0 +1,57 @@
+body {
+    box-sizing: border-box;
+    background: url(../images/pexels-photo-235985.jpeg) no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    max-width: 960px;
+    margin: auto;
+}
+
+#new-topic {
+    max-width: 960px;
+    margin: auto;
+    text-align: center;
+}
+
+#add-topic {
+    margin-top: 20px;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+button {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 50px;
+}
+
+#fav-movie {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#add-topic{
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

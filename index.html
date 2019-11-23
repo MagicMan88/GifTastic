@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>GifTastic</title>
 </head>
+
+<header>
+    <h1>GifTastic!!!</h1>
+    <p>Click a button to generate gifs of my favorite movies.<br>
+    To generate gifs of your favorite movies enter the movie name <br>
+    in the box and click generate. You can also click the gif to get <br>
+    the gif moving and simply click again to pause the gif.</p>
+</header>
 
 <body>
     <!-- Container wrapping whole document -->
@@ -33,11 +42,11 @@
         <div id="gifs-go-here"></div>
     </div>
     <!-- Form to add a new movie -->
-    <div id="add-character">
+    <div id="new-topic">
         <form id="form">
-            <label for="character-input">Add your favorite movie</label><br>
-            <input type="text" id="character-input"><br>
-            <input id="add-character" type="submit" value="Submit">
+            <label for="topic" id="fav-movie">Add your favorite movie</label><br>
+            <input type="text" id="topic-input"><br>
+            <input id="add-topic" type="submit" value="Generate Gifs">
         </form>
     </div>
     <!-- Script tags -->
