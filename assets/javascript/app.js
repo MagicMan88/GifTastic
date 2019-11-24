@@ -1,6 +1,6 @@
 // Topics and buttons variables
 var topics = ["Harry Potter", "Gandalf", "James Bond", "Sirius Black", "Chicken Little"];
-var newButton;
+
 
 // Event listener for all button elements
 $('button').on('click', function () {
@@ -51,31 +51,32 @@ $('button').on('click', function () {
                     $('#gifs-go-here').prepend(gifDiv);
 
                     // Function to animate gifs
-                    $(".gif").on("click", function (event) {
+                    $('.gif').on('click', function (event) {
                         event.preventDefault();
 
                         // gets the current state of the clicked gif 
-                        var state = $(this).attr("data-state");
+                        var state = $(this).attr('data-state');
 
                         // according to the current state gifs toggle between animate and still 
-                        if (state === "still") {
-                            $(this).attr("src", $(this).attr("data-animate"));
+                        if (state === 'still') {
+                            $(this).attr('src', $(this).attr('data-animate'));
                             $(this).attr("data-state", "animate");
                         } else {
-                            $(this).attr("src", $(this).attr("data-still"));
-                            $(this).attr("data-state", "still");
+                            $(this).attr('src', $(this).attr('data-still'));
+                            $(this).attr('data-state', 'still');
                         }
 
-                    })
+                    });
 
+                    // Function to create a new button -- This isn't working, not sure why.
                     $('#add-topic').on('click', function (event) {
                         event.preventDefault();
                         console.log('submit');
                         // sets inputted value to newTopic 
-                        newTopic = $('#topic-input').val().trim();
+                        var newButton = $('#topic-input').val().trim();
                         // new topic is added to the topics array 
-                        topics.push(newTopic);
-                        console.log(topics);
+                        topics.push(newButton);
+                        console.log(newButton);
                     });
 
                 };
