@@ -6,49 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>GifTastic</title>
+    <title>GifTastic: A Journey Into APIs</title>
 </head>
-
+<!-- Header section describing how the website works -->
 <header>
-    <h1>GifTastic!!!</h1>
-    <p>Click a button to generate gifs of my favorite movies.<br>
-    To generate gifs of your favorite movies enter the movie name <br>
-    in the box and click generate. You can also click the gif to get <br>
-    the gif moving and simply click again to pause the gif.</p>
+    <h1>GifTastic: A Journey Into APIs</h1>
+    <p>Click a button to generate gifs of some of my favorite characters from films.
+        To generate gifs of your favorite movies or charcters enter the movie name
+        in the box and click generate. You can also click the gif to get
+        the gif moving and simply click again to pause the gif.</p>
 </header>
 
 <body>
-    <!-- Container wrapping whole document -->
-    <div class="container">
-        <!-- Div Holding Buttons -->
-        <div id="buttons">
-            <button data-person="Harry Potter">
-                Harry Potter
-            </button>
-            <button data-person="Lord of the Rings">
-                Lord of The Rings
-            </button>
-            <button data-person="Casino Royale">
-                Casino Royale
-            </button>
-            <button data-person="Sirius Black">
-                Sirius Black
-            </button>
-            <button data-person="Chicken Little">
-                Chicken Little
-            </button>
-        </div>
-        <!-- Gif's go here -->
-        <div id="gifs-go-here"></div>
+    <div id="movie-buttons">
+        <!-- My buuttons go here -->
     </div>
-    <!-- Form to add a new movie -->
-    <div id="new-topic">
-        <form id="form">
-            <label for="topic" id="fav-movie">Add your favorite movie</label><br>
-            <input type="text" id="topic-input"><br>
-            <input id="add-topic" type="submit" value="Generate Gifs">
-        </form>
+
+    <!-- Form for finding gifs -->
+    <form id="animal-form text-center">
+        <label for="animal-input">Add a character from you favorite movie</label>
+        <input type="text" id="animal-input"><br>
+        <input id="add-movie" type="submit" value="Submit">
+    </form>
+
+    <!-- Newly generated buttons go here -->
+    <div id="movies">
+
     </div>
+
     <!-- Script tags -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

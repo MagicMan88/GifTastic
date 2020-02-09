@@ -1,85 +1,45 @@
-// Topics and buttons variables
-var topics = ["Harry Potter", "Gandalf", "James Bond", "Sirius Black", "Chicken Little"];
+$(document).ready(function () {
 
+    var movies = [
+        "Harry Potter",
+        "Gandalf",
+        "James Bond",
+        "Sirius Black",
+        "Chicken Little"
+    ];
 
-// Event listener for all button elements
-$('button').on('click', function () {
-    var topics = $(this).attr('data-person');
-    // URL to search giphy for the name of the added character
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        topics + "&api_key=EDIhLQCerntt3WVSp8CaSSY2I70Ug4Di&limit=10";
-    // Perform the AJAX 'GET' request
-    $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-        // After the data comes back from the API
-        .then(function (response) {
-            // Storing the array of results in the results variable
-            var results = response.data;
+    // Function to make buttons and add to page
+    function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
+        $(areaToAddTo).empty();
 
-            /// Loop through every result item
-            for (var i = 0; i < results.length; i++) {
+        // Loop through the arrayToUse
+        for (var i = 0; i < arrayToUse.length; i++) {
+            var m = $('<button>');
+            m.addClass(classToAdd);
+            m.attr('data-type', arrayToUse[i]);
+            m.text(arrayToUse[i]);
+            $(areaToAddTo).append(m);
+        }
+    }
 
-                // Only take action if the photo has an appropriate rating
-                if (results[i] !== 'r' && results[i].rating !== 'pg-13') {
-                    // Creating a div for the gif
-                    var gifDiv = $('<div>');
+    $(document).on('click', '.movie-button', function () {
+        $('#movies').empty();
+        $('.movie-button').removeClass('active');
+        $(this).addClass('active');
 
-                    // Store the results rating
-                    var rating = results[i].rating;
+        var type = $('this').attr('data-type');
+        var queryUrl = 'http://api.giphy.com/v1/gifs/search?q=' + type + '&api_key=EDIhLQCerntt3WVSp8CaSSY2I70Ug4Di';
 
-                    // Create a paragraph tag with the results rating
+        $.ajax({
+                url: queryUrl,
+                method: 'GET'
+            })
+            .then(function (response) {
+                var results = response.data;
 
-                    var p = $('<p>').text('Rating: ' + rating);
-
-                    // Create an image tag
-                    var topicsImg = $('<img>');
-
-                    // Make sure to grab the still images so you can unpause on click
-                    topicsImg.attr("src", results[i].images.fixed_height_still.url);
-                    topicsImg.attr("data-still", results[i].images.fixed_height_still.url);
-                    topicsImg.attr("data-animate", results[i].images.fixed_height.url)
-                    topicsImg.attr("data-state", "still")
-                    topicsImg.addClass("gif");
-
-                    // Append the paragraph and topicsImg to the gifDiv created above
-                    gifDiv.append(p);
-                    gifDiv.append(topicsImg);
-
-                    // Prepend the gifDiv to the Gif's go here id 
-                    $('#gifs-go-here').prepend(gifDiv);
-
-                    // Function to animate gifs
-                    $('.gif').on('click', function (event) {
-                        event.preventDefault();
-
-                        // gets the current state of the clicked gif 
-                        var state = $(this).attr('data-state');
-
-                        // according to the current state gifs toggle between animate and still 
-                        if (state === 'still') {
-                            $(this).attr('src', $(this).attr('data-animate'));
-                            $(this).attr("data-state", "animate");
-                        } else {
-                            $(this).attr('src', $(this).attr('data-still'));
-                            $(this).attr('data-state', 'still');
-                        }
-
-                    });
-
-                    // Function to create a new button -- This isn't working, not sure why.
-                    $('#add-topic').on('click', function (event) {
-                        event.preventDefault();
-                        console.log('submit');
-                        // sets inputted value to newTopic 
-                        var newButton = $('#topic-input').val().trim();
-                        // new topic is added to the topics array 
-                        topics.push(newButton);
-                        console.log(newButton);
-                    });
-
-                };
-            };
-        });
+                for (var i = 0; i < results.length; i++) {
+                    var movieDiv = $("<div class=\"movie-item\">");
+                }
+            })
+    })
 });
