@@ -1,10 +1,10 @@
 $(document).ready(function () {
-
+    // Setting a movies array
     var movies = [
         "Harry Potter",
-        "Gandalf",
+        "Wedding Crashers",
         "James Bond",
-        "Sirius Black",
+        "Mission Impossible",
         "Chicken Little"
     ];
 
@@ -22,13 +22,14 @@ $(document).ready(function () {
         }
     }
 
+    // Event that returns gifs from the giphy API
     $(document).on('click', '.movie-button', function () {
         $('#movies').empty();
         $('.movie-button').removeClass('active');
         $(this).addClass('active');
 
-        var type = $('this').attr('data-type');
-        var queryUrl = 'http://api.giphy.com/v1/gifs/search?q=' + type + '&api_key=EDIhLQCerntt3WVSp8CaSSY2I70Ug4Di';
+        var type = $(this).attr('data-type');
+        var queryUrl = 'https://api.giphy.com/v1/gifs/search?q=' + type + '&api_key=EDIhLQCerntt3WVSp8CaSSY2I70Ug4Di&limit=10';
 
         $.ajax({
                 url: queryUrl,
@@ -62,6 +63,7 @@ $(document).ready(function () {
             });
     });
 
+    // Event that animates the gifs on click
     $(document).on('click', '.movie-image', function () {
         var state = $(this).attr('data-state');
 
@@ -70,5 +72,19 @@ $(document).ready(function () {
             $(this).attr('data-state', 'still');
         }
     });
+
+    // Event that adds gifs to the movies div on index.html
+    $('#add-movie').on('click', function (event) {
+        event.preventDefault();
+        var newMovie = $('input').eq(0).val();
+
+        if (newMovie.length > 2) {
+            movies.push(newMovie);
+        }
+
+        populateButtons(movies, 'movie-button', '#movie-buttons');
+    });
+
+    populateButtons(movies, 'movie-button', '#movie-buttons');
 
 });
