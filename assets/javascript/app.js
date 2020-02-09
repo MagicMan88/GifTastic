@@ -59,6 +59,16 @@ $(document).ready(function () {
 
                     $('#movies').append(movieDiv);
                 }
-            })
-    })
+            });
+    });
+
+    $(document).on('click', '.movie-image', function () {
+        var state = $(this).attr('data-state');
+
+        if (state === 'still') {
+            $(this).attr('src', $(this).attr('data-animate'));
+            $(this).attr('data-state', 'still');
+        }
+    });
+
 });
